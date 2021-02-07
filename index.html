@@ -8,10 +8,33 @@
         <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
     </head>
     <body>
+        <div id="container"></div>
         <script type="text/babel">
+            const destination = document.querySelector("#container");
+            class Letter extends React.Component{
+                render(){
+                    const letterStyle = {
+                        padding: 10,
+                        diplay: "inline-block",
+                        backgroundColor: "#2aa2bd",
+                        color:"#333",
+                        fonrSize: 32,
+                        fontFamily: "monospace",
+                        textAlign: "center",
+                        margin: 10
+                    };
+                    return (
+                        <div style={letterStyle}>{this.props.children}</div>
+                    )
+                }
+            }
             ReactDOM.render(
-                <h1>Привет, мир!</h1>,
-                document.body
+                <div>
+                    <Letter>А</Letter>
+                    <Letter>Б</Letter>
+                    <Letter>В</Letter>
+                    </div>,
+                destination
             );
         </script>
     </body>
